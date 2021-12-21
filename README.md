@@ -56,3 +56,36 @@ By quickly we mean that if you think it is too long, then it is probably too lon
 - The server confirms every signal received by sending a signal to the client.
 - support Unicode characters!
 
+## Background
+```c
+#include "ft_printf.h"
+
+int ft_printf(const char *fmt, ...);
+
+#include <unistd.h>
+
+ssize_t write(int fildes, const void *buf, size_t nbyte);
+pid_t getpid(void);
+int pause(void);
+unsigned int sleep(unsigned int seconds);
+int usleep(useconds_t microseconds);
+
+#include <signal.h>
+
+void (*signal(int sig, void (*func)(int)))(int);
+int sigemptyset(sigset_t *set);
+int sigaddset(sigset_t *set, int signo);
+struct sigaction {
+  union     __sigaction_u __sigaction_u; /* signal handler */
+  sigset_t  sa_mask;                     /* signal mast to apply */
+  int       sa_flags;                    /* see signal options below */
+ }
+int sigaction(int sig, const struct sigaction *restrict act, struct sigaction *restrict oact);
+int kill(pid_t pid, int sig);
+
+#include <stdlib.h>
+
+void *malloc(size_t size);
+void free(void *ptr);
+void exit(int status);
+```
