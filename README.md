@@ -85,7 +85,15 @@ struct sigaction {
   union     __sigaction_u __sigaction_u; /* signal handler */
   sigset_t  sa_mask;                     /* signal mast to apply */
   int       sa_flags;                    /* see signal options below */
- }
+ };
+
+union __sigaction_u {
+  void      (*__sa_handler)(int);
+  void      (*__sa_sigaction)(int, siginfo_t *, void *);
+};
+
+#define sa_handler    __sigaction_u.__sa_handler
+#define sa_sigaction  __sigaction_u.__sa_sigaction
 int           sigaction(int sig, const struct sigaction *restrict act, struct sigaction *restrict oact);
 int           kill(pid_t pid, int sig);
 
