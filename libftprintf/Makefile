@@ -6,7 +6,7 @@
 #    By: kangkim <kangkim@student.42seoul.k>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 17:04:19 by kangkim           #+#    #+#              #
-#    Updated: 2021/12/08 14:48:09 by kangkim          ###   ########.fr        #
+#    Updated: 2021/12/23 11:11:06 by kangkim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,7 @@ bonus : all
 
 $(NAME): $(OBJS)
 	make all -C $(LIBFT_DIR)
-	cp $(LIBFT_DIR)/$(LIBFT_A) ./$(NAME)
-	$(AR) $(NAME) $(OBJS)
+	$(AR) $(NAME) $(LIBFT_DIR)/$(LIBFT_A) $(OBJS)
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@

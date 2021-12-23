@@ -6,7 +6,7 @@
 /*   By: kangkim <kangkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:20:45 by kangkim           #+#    #+#             */
-/*   Updated: 2021/12/08 10:06:23 by kangkim          ###   ########.fr       */
+/*   Updated: 2021/12/23 10:32:53 by kangkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	print_sign(char **nbr_str, t_info *fmt_info, int nbr)
 	{
 		if ((fmt_info->precision >= ft_strlen(*nbr_str) || \
 			fmt_info->precision >= fmt_info->width) || \
-			 (fmt_info->nbr_zero_sign == 1))
+			(fmt_info->nbr_zero_sign == 1))
 		{
 			cnt += ft_putchar((int)(**nbr_str));
 			(*nbr_str)++;
